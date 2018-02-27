@@ -1,0 +1,10 @@
+{
+  "builtInLibrariesFolders": "/home/francois/Program/arduino-1.6.8/libraries",
+  "customBuildProperties": "build.warn_data_percentage=75",
+  "fqbn": "arduino:avr:uno",
+  "hardwareFolders": "/home/francois/Program/arduino-1.6.8/hardware,/home/francois/.arduino15/packages",
+  "otherLibrariesFolders": "/home/francois/Arduino/libraries",
+  "runtime.ide.version": "10608",
+  "sketchLocation": "/home/francois/Program/ardublockly/ardublockly_v1/ArdublocklySketch/ArdublocklySketch.ino",
+  "toolsFolders": "/home/francois/Program/arduino-1.6.8/tools-builder,/home/francois/Program/arduino-1.6.8/hardware/tools/avr,/home/francois/.arduino15/packages"
+}

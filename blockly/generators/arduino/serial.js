@@ -58,7 +58,23 @@ Blockly.Arduino['serial_setup'] = function(block) {
   return code;
 };
 
-//FB
+//Qliic Scan I2C
+
+/**
+ * Code generator for block for setting the serial com speed.
+ * Arduino code: setup{ Serial.begin(X); }
+ * @param {!Blockly.Block} block Block to generate the code from.
+ * @return {array} Completed code.
+ */
+Blockly.Arduino['i2c_scan'] = function(block) {
+  Blockly.Arduino.addInclude('i2c_scan1', '#include <Wire.h>');
+  Blockly.Arduino.addInclude('i2c_scan2', '#include <QliicScan.h>');
+  Blockly.Arduino.addSetup('i2c_scan', 'setupDetecterI2C();', true);
+  var code = 'detecterI2C();\n';
+  return code;
+};
+
+//Qliic Wire
 
 /**
  * Code generator for block for setting the serial com speed.

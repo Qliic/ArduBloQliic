@@ -130,7 +130,24 @@ Blockly.Blocks['serial_print'] = {
 };
 
 
-//FB Wire
+//Qliic Scan I2C
+
+Blockly.Blocks['i2c_scan'] = {
+  /**
+   * Block for creating a write to serial com function.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(Blockly.Blocks.serial.HUE);
+    this.appendDummyInput()
+        .appendField('I2C Scanner')
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
+// Qliic Wire
 
 Blockly.Blocks['wire_setup'] = {
   /**

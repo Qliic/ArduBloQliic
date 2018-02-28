@@ -219,8 +219,9 @@ Ardublockly.TOOLBOX_XML =
 '    </block>' +
 '  </category>' +
 '  <sep></sep>' +
-//FB
+//Blocks Qliic
 '  <category id="catI2C" name="I2C">' +
+'    <block type="i2c_scan"></block>' +
 '    <block type="wire_setup"></block>' +
 '    <block type="wire_request">' +
 '      <value name="NUMBER">' +

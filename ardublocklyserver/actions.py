@@ -105,7 +105,6 @@ def load_arduino_cli(sketch_path):
             cli_command.append(settings.get_arduino_board_flag())
         elif settings.load_ide_option == 'verify':
             print('\nVerifying the sketch...')
-            #cli_command.append('--pref build.verbose=true')
             cli_command.append('--preserve-temp-files')
             cli_command.append('--board')
             cli_command.append(settings.get_arduino_board_flag())

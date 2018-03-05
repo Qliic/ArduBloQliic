@@ -1,85 +1,112 @@
-<xml>
-  <block type="serial_setup" id="9" x="314" y="68">
-    <field name="SERIAL_ID">Serial</field>
-    <field name="SPEED">9600</field>
-  </block>
-  <block type="variables_set" id="10" inline="true" x="40" y="125">
-    <field name="VAR">thisByte</field>
-    <value name="VALUE">
-      <block type="math_number" id="11">
-        <field name="NUM">33</field>
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="D`^xbg%4S~U/:#L#a]9u" x="18" y="18">
+    <statement name="SETUP_FUNC">
+      <block type="qliic_serial_setup" id="00u|QC%1h{sKxq4gDXe+">
+        <field name="SERIAL_ID">Serial</field>
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="qliic_serial_setup" id="K?^jH,g4+gv4Ja~]COBU">
+            <field name="SERIAL_ID">Bluetooth</field>
+            <field name="SPEED">9600</field>
+          </block>
+        </next>
       </block>
-    </value>
-    <next>
-      <block type="controls_whileUntil" id="12" inline="false">
-        <field name="MODE">WHILE</field>
-        <value name="BOOL">
-          <block type="logic_compare" id="13">
-            <field name="OP">LT</field>
-            <value name="A">
-              <block type="variables_get" id="14">
-                <field name="VAR">thisByte</field>
-              </block>
-            </value>
-            <value name="B">
-              <block type="math_number" id="15">
-                <field name="NUM">126</field>
-              </block>
-            </value>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="variables_set" id="10" inline="true">
+        <field name="VAR">thisByte</field>
+        <comment pinned="false" h="80" w="160">Licence Creative Commons Attribution 4.0 International by Qliic.org
+
+Tutorial for USB serial and Bluetooth printing
+        </comment>
+        <value name="VALUE">
+          <block type="math_number" id="11">
+            <field name="NUM">33</field>
           </block>
         </value>
-        <statement name="DO">
-          <block type="serial_print" id="16">
-            <field name="SERIAL_ID">Serial</field>
-            <field name="NEW_LINE">FALSE</field>
-            <value name="CONTENT">
-              <block type="variables_set_type" id="17">
-                <field name="VARIABLE_SETTYPE_TYPE">CHARACTER</field>
-                <value name="VARIABLE_SETTYPE_INPUT">
-                  <block type="variables_get" id="18">
+        <next>
+          <block type="controls_whileUntil" id="12" inline="false">
+            <field name="MODE">WHILE</field>
+            <value name="BOOL">
+              <block type="logic_compare" id="13">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="variables_get" id="14">
                     <field name="VAR">thisByte</field>
                   </block>
                 </value>
-              </block>
-            </value>
-            <next>
-              <block type="serial_print" id="19">
-                <field name="SERIAL_ID">Serial</field>
-                <field name="NEW_LINE">FALSE</field>
-                <value name="CONTENT">
-                  <block type="text" id="20">
-                    <field name="TEXT">, dec: </field>
+                <value name="B">
+                  <block type="math_number" id="15">
+                    <field name="NUM">126</field>
                   </block>
                 </value>
-                <next>
-                  <block type="serial_print" id="21">
-                    <field name="SERIAL_ID">Serial</field>
-                    <field name="NEW_LINE">TRUE</field>
-                    <value name="CONTENT">
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="variables_set" id="JFotZhtw:ZMtNfkp`d*;">
+                <field name="VAR">buffer</field>
+                <value name="VALUE">
+                  <block type="text_join" id="c`m=wh2imtTQ6UApDzqK">
+                    <mutation items="3"></mutation>
+                    <value name="ADD0">
+                      <block type="variables_set_type" id="17">
+                        <field name="VARIABLE_SETTYPE_TYPE">CHARACTER</field>
+                        <value name="VARIABLE_SETTYPE_INPUT">
+                          <block type="variables_get" id="18">
+                            <field name="VAR">thisByte</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="text" id="20">
+                        <field name="TEXT">, dec: </field>
+                      </block>
+                    </value>
+                    <value name="ADD2">
                       <block type="variables_get" id="23">
                         <field name="VAR">thisByte</field>
                       </block>
                     </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="math_change" id="24" inline="true">
+                    <field name="VAR">thisByte</field>
+                    <value name="DELTA">
+                      <block type="math_number" id="25">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
                     <next>
-                      <block type="math_change" id="24" inline="true">
-                        <field name="VAR">thisByte</field>
-                        <value name="DELTA">
-                          <block type="math_number" id="25">
-                            <field name="NUM">1</field>
+                      <block type="qliic_print" id="ip[6R`maP4V7BIr4Xfa3">
+                        <field name="SERIAL_ID">Serial</field>
+                        <field name="NEW_LINE">TRUE</field>
+                        <value name="CONTENT">
+                          <block type="variables_get" id="m2[T*]H]{sV6cphaimwT">
+                            <field name="VAR">buffer</field>
                           </block>
                         </value>
+                        <next>
+                          <block type="qliic_print" id=".hQicGCQGcxDN3NP-9ba">
+                            <field name="SERIAL_ID">Bluetooth</field>
+                            <field name="NEW_LINE">TRUE</field>
+                            <value name="CONTENT">
+                              <block type="variables_get" id="!D!}lo4fu!I(rW)(g^5}">
+                                <field name="VAR">buffer</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
                       </block>
                     </next>
                   </block>
                 </next>
               </block>
-            </next>
+            </statement>
           </block>
-        </statement>
-        <next>
-          <block type="infinite_loop" id="35"></block>
         </next>
       </block>
-    </next>
+    </statement>
   </block>
 </xml>

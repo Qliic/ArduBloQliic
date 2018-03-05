@@ -36,7 +36,7 @@ def launch_server(ip='localhost', port=8000, document_root_=''):
     global document_root
     print('Setting HTTP Server Document Root to:\n\t%s' % document_root_)
     document_root = document_root_
-    print('Launch Server:')
+    print('Launch Server Qliic:')
     sys.stdout.flush()
     run(app, server='waitress', host=ip, port=port, debug=True)
 
@@ -78,6 +78,9 @@ def index_redirect():
 @app.route('/nano')
 def index_redirect():
     """Redirect the server entry point to the Ardublockly front end."""
+    print('NANO:')
+    print(os.path.join(document_root, 'ardublockly', 'BUILD'))
+
     return static_file('ArdublocklySketch.ino.hex',
                        root=os.path.join(document_root, 'ardublockly', 'BUILD'), mimetype='application/nano')
 

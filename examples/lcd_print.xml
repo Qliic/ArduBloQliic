@@ -1,0 +1,46 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="e,4O@AuS1+sT7uvOUyX." x="92" y="43">
+    <statement name="LOOP_FUNC">
+      <block type="controls_for" id="6~mJVH+0sW.6t)g43sJ*">
+        <field name="VAR">i</field>
+        <value name="FROM">
+          <block type="math_number" id="4~TUOiR[UA(/+jkZgiMv">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="TO">
+          <block type="math_number" id=";0Jrt|Sr]![cgdbp+TQ*">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+        <value name="BY">
+          <block type="math_number" id=";r]i,jmbGV/yg7%r9`ny">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="qliic_lcd_print" id="2=5u+x^HQTtpCIRU28Br">
+            <value name="CONTENT">
+              <block type="variables_get" id="]X%S:oc9^L57D1^pH+:]">
+                <field name="VAR">i</field>
+              </block>
+            </value>
+            <next>
+              <block type="qliic_lcd_clear" id="?rrjJDV8)bB]T,*QQDP-">
+                <next>
+                  <block type="time_delay" id="BC/LWg8Fyoxx1m7Qjb{r">
+                    <value name="DELAY_TIME_MILI">
+                      <block type="math_number" id="tgOM/GPN]9zAYLU!QGoR">
+                        <field name="NUM">1000</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

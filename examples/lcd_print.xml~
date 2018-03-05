@@ -1,0 +1,31 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="t:|m0LuzCes`jRrcSV}q" x="88" y="72">
+    <statement name="SETUP_FUNC">
+      <block type="qliic_i2c_scan" id="9FP)0Z(hqv*F.Zv44Gn+"></block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="variables_set" id="kr}~/g=qzV1}`p~Bcwwz">
+        <field name="VAR">item</field>
+        <value name="VALUE">
+          <block type="qliic_distance_read" id="+Xvpw|%ukvd*K[K7YdND"></block>
+        </value>
+        <next>
+          <block type="variables_set" id="*enU*]sWSjSbS7a.Ha79">
+            <field name="VAR">item</field>
+            <value name="VALUE">
+              <block type="qliic_analog_read" id="=;_K=)xZNa-*-r`e|-c0"></block>
+            </value>
+            <next>
+              <block type="variables_set" id="))if_:S:{[mERJjxOk.7">
+                <field name="VAR">item</field>
+                <value name="VALUE">
+                  <block type="qliic_compass_read" id="MjSH!7UQ:;md!h*Lo0l*"></block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

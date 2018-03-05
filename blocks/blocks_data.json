@@ -38,6 +38,8 @@
             "toolbox": [
                 "<category>",
                 "  <block type=\"ardublockly_name_top\"></block>",
+                "  <block type=\"ardublockly_name_top\"></block>",
+                "  <block type=\"ardublockly_name_top\"></block>",
                 "</category>"
             ]
         }

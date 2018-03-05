@@ -67,15 +67,15 @@ Ardublockly.bindActionFunctions = function() {
     $('.button-collapse').sideNav('hide');
   });
   Ardublockly.bindClick_('menu_example_3', function() {
-    Ardublockly.loadServerXmlFile('../examples/serial_repeat_game.xml');
+    Ardublockly.loadServerXmlFile('../examples/scan_i2c.xml');
     $('.button-collapse').sideNav('hide');
   });
   Ardublockly.bindClick_('menu_example_4', function() {
-    Ardublockly.loadServerXmlFile('../examples/servo_knob.xml');
+    Ardublockly.loadServerXmlFile('../examples/lcd_print.xml');
     $('.button-collapse').sideNav('hide');
   });
   Ardublockly.bindClick_('menu_example_5', function() {
-    Ardublockly.loadServerXmlFile('../examples/stepper_knob.xml');
+    Ardublockly.loadServerXmlFile('../examples/qliic_blocks.xml');
     $('.button-collapse').sideNav('hide');
   });
 

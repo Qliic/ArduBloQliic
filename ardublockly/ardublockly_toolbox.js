@@ -174,6 +174,7 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="infinite_loop"></block>' +
 '  </category>' +
 '  <sep></sep>' +
+/*
 '  <category id="catAudio" name="Audio">' +
 '    <block type="io_tone">' +
 '      <field name="TONEPIN">0</field>' +
@@ -186,6 +187,7 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="io_notone"></block>' +
 '  </category>' +
 '  <sep></sep>' +
+*/
 '  <category id="catMotors" name="Motors">' +
 '    <block type="servo_write">' +
 '      <value name="SERVO_ANGLE">' +
@@ -195,10 +197,13 @@ Ardublockly.TOOLBOX_XML =
 '      </value>' +
 '    </block>' +
 '    <block type="servo_read"></block>' +
+/*
 '    <block type="stepper_config">' +
 '      <field name="STEPPER_NUMBER_OF_PINS">2</field>' +
-'      <field name="STEPPER_PIN1">1</field>' +
-'      <field name="STEPPER_PIN2">2</field>' +
+'      <field name="STEPPER_PIN1">9</field>' +
+'      <field name="STEPPER_PIN2">10</field>' +
+'      <field name="STEPPER_PIN3">11</field>' +
+'      <field name="STEPPER_PIN4">12</field>' +
 '      <value name="STEPPER_STEPS">' +
 '        <block type="math_number">' +
 '          <field name="NUM">100</field>' +
@@ -217,11 +222,11 @@ Ardublockly.TOOLBOX_XML =
 '        </block>' +
 '      </value>' +
 '    </block>' +
+*/
 '  </category>' +
 '  <sep></sep>' +
 //Blocks Qliic
 '  <category id="catI2C" name="I2C">' +
-'    <block type="i2c_scan"></block>' +
 '    <block type="wire_setup"></block>' +
 '    <block type="wire_request">' +
 '      <value name="NUMBER">' +
@@ -255,13 +260,18 @@ Ardublockly.TOOLBOX_XML =
 '  </category>' +
 '  <sep></sep>' +
 '  <category id="catQliic" name="Qliic">' +
+//'    <block type="qliic_setup"></block>' +
+//'    <block type="qliic_loop"></block>' +
+'    <block type="qliic_i2c_scan"></block>' +
 '    <block type="qliic_distance_read"></block>' +
 '    <block type="qliic_analog_read"></block>' +
-/*'    <block type="qliic_color_read"></block>' +
+'    <block type="qliic_compass_read"></block>' +
+'    <block type="qliic_color_read"></block>' +
+'    <block type="qliic_gyroscope_read"></block>' +
+/*
 '    <block type="qliic_color_r"></block>' +
 '    <block type="qliic_color_g"></block>' +
 '    <block type="qliic_color_b"></block>' +
-'    <block type="qliic_gyro_read"></block>' +
 '    <block type="qliic_gyro_x"></block>' +
 '    <block type="qliic_gyro_y"></block>' +
 '    <block type="qliic_gyro_z"></block>' +
@@ -273,6 +283,32 @@ Ardublockly.TOOLBOX_XML =
 '  <sep></sep>' +
 //FB
 '  <category id="catComms" name="Serial">' +
+'    <block type="qliic_serial_setup"></block>' +
+'    <block type="qliic_print">' +
+'      <value name="CONTENT">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'    </block>' +
+//'    <block type="qliic_lcd_setup"></block>' +
+'    <block type="qliic_lcd_print">' +
+'      <value name="CONTENT">' +
+'        <block type="text"></block>' +
+'      </value>' +
+'    </block>' +
+'    <block type="qliic_lcd_clear"></block>' +
+'    <block type="qliic_lcd_cursor">' +
+'      <value name="CONTENTX">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'      <value name="CONTENTY">' +
+'        <block type="math_number">' +
+'          <field name="NUM">0</field>' +
+'        </block>' +
+'      </value>' +
+'    </block>' +
+/*
 '    <block type="serial_setup"></block>' +
 '    <block type="serial_print"></block>' +
 '    <block type="text_prompt_ext">' +
@@ -280,8 +316,9 @@ Ardublockly.TOOLBOX_XML =
 '        <block type="text"></block>' +
 '      </value>' +
 '    </block>' +
-//'    <block type="spi_setup"></block>' +
-//'    <block type="spi_transfer"></block>' +
-//'    <block type="spi_transfer_return"></block>' +
+'    <block type="spi_setup"></block>' +
+'    <block type="spi_transfer"></block>' +
+'    <block type="spi_transfer_return"></block>' +
+*/
 '  </category>' +
 '</xml>';

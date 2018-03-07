@@ -1,0 +1,175 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="-COr}(`*!0~wr0]M2~aL" x="76" y="26">
+    <statement name="SETUP_FUNC">
+      <block type="qliic_serial_setup" id="Q=*/h4tCwK`iY6y.JsK9">
+        <field name="SERIAL_ID">Serial</field>
+        <field name="SPEED">9600</field>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="variables_set" id="+,q@FtXd`Y|b6DH2QahO">
+        <field name="VAR">degre</field>
+        <value name="VALUE">
+          <block type="qliic_magnenometer_value" id="@]H2nLnTl~qpAtKBPN9W">
+            <field name="MAGNETOMETER_ID">magnetometerDegre</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="5X4rAnk]C-Ol:psoR-)e">
+            <field name="VAR">x</field>
+            <value name="VALUE">
+              <block type="qliic_magnenometer_value" id=":iz=Od|8RQb%]XEF}WJb">
+                <field name="MAGNETOMETER_ID">magnetometerAxeX</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="CUG=D:n/na0;x;Q_4D]P">
+                <field name="VAR">y</field>
+                <value name="VALUE">
+                  <block type="qliic_magnenometer_value" id="%1_F2l+}.X,NFtkX6`WH">
+                    <field name="MAGNETOMETER_ID">magnetometerAxeY</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="Q8-;Y:%Lzup2;O{pdgJ`">
+                    <field name="VAR">z</field>
+                    <value name="VALUE">
+                      <block type="qliic_magnenometer_value" id="~hlYsGbrUdZy6t@)26y5">
+                        <field name="MAGNETOMETER_ID">magnetometerAxeZ</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="Rb`#Kr5[F0edyqakg[vD">
+                        <field name="VAR">magnetometerValues</field>
+                        <value name="VALUE">
+                          <block type="variables_set_type" id="w(W#x:@b0S.DT%O|jM*?">
+                            <field name="VARIABLE_SETTYPE_TYPE">TEXT</field>
+                            <value name="VARIABLE_SETTYPE_INPUT">
+                              <block type="qliic_magnenometer_read" id="LntF6;0}.^nKHvF92e(P"></block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="R3|xeT@5-v)gF67NcT1/">
+                            <field name="VAR">msg</field>
+                            <value name="VALUE">
+                              <block type="text_join" id="UNv_8+Fxfjw;6Hi[dG3l">
+                                <mutation items="7"></mutation>
+                                <value name="ADD0">
+                                  <block type="variables_get" id="En^V2[Qj@wl`vrm:9Cvu">
+                                    <field name="VAR">degre</field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="text" id="LE*?#H_m2QQ7hh_P{x)6">
+                                    <field name="TEXT">,</field>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="variables_get" id="3By]?-;FZBv=rhg@Pif`">
+                                    <field name="VAR">x</field>
+                                  </block>
+                                </value>
+                                <value name="ADD3">
+                                  <block type="text" id="D^9,WpJK|[:^Pe54Qmzr">
+                                    <field name="TEXT">,</field>
+                                  </block>
+                                </value>
+                                <value name="ADD4">
+                                  <block type="variables_get" id="BL94mT3TBsqaa5ZHITyl">
+                                    <field name="VAR">y</field>
+                                  </block>
+                                </value>
+                                <value name="ADD5">
+                                  <block type="text" id="%(u1Wpj9.wwsHMguq:Jj">
+                                    <field name="TEXT">,</field>
+                                  </block>
+                                </value>
+                                <value name="ADD6">
+                                  <block type="variables_get" id="r#g0RE]*]?6pNW.[8FmB">
+                                    <field name="VAR">z</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="qliic_print" id="Y)r#G=;h1%E7L(]4VaID">
+                                <field name="SERIAL_ID">Serial</field>
+                                <field name="NEW_LINE">TRUE</field>
+                                <value name="CONTENT">
+                                  <block type="variables_get" id="|`@q(0|b:=x4%vpN(?ms">
+                                    <field name="VAR">magnetometerValues</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="qliic_print" id="8aqNsR1p?t[FlLv[P^p;">
+                                    <field name="SERIAL_ID">Serial</field>
+                                    <field name="NEW_LINE">TRUE</field>
+                                    <value name="CONTENT">
+                                      <block type="variables_get" id="N3L!zZv.Rcey4._Vn3}o">
+                                        <field name="VAR">msg</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="qliic_lcd_clear" id="kA}KUv-gWZ7pzwsmN5+E">
+                                        <next>
+                                          <block type="qliic_lcd_print" id="rcWkvhWU%i!)=QLT9tJt">
+                                            <value name="CONTENT">
+                                              <block type="variables_get" id="_`@!K(dC.Z,+)gu;|qN:">
+                                                <field name="VAR">magnetometerValues</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="qliic_lcd_cursor" id="|Rcnnm@PwAAGN^WInWpG">
+                                                <value name="CONTENTX">
+                                                  <block type="math_number" id="lIW~%U?WCSQ+!jBd{apJ">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                                <value name="CONTENTY">
+                                                  <block type="math_number" id="n?=8si}@jzJ/|Mc8C@)^">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="qliic_lcd_print" id="en.gKaHC9`%~eFXE`%z0">
+                                                    <value name="CONTENT">
+                                                      <block type="variables_get" id="w4RhPOyR;jU=GAk!hka?">
+                                                        <field name="VAR">msg</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="time_delay" id="1dg7vw`CDNPf|2y@-E#C">
+                                                        <value name="DELAY_TIME_MILI">
+                                                          <block type="math_number" id="+5!207KUL@9tt()?Y9S^">
+                                                            <field name="NUM">100</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

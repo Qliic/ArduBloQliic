@@ -1,0 +1,82 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="arduino_functions" id="kYgc3FQ|iV!I?I~1VM(V" x="75" y="104">
+    <statement name="SETUP_FUNC">
+      <block type="qliic_serial_setup" id="?hR^m:xqQ|sgu=7M(w-2">
+        <field name="SERIAL_ID">Serial</field>
+        <field name="SPEED">9600</field>
+        <next>
+          <block type="wire_setup" id="*[=5Sbpyh7ARiysExskt">
+            <next>
+              <block type="qliic_i2c_scan" id="P2LiB3Mg6Z#G4=DiX*Is"></block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="LOOP_FUNC">
+      <block type="wire_request" id="U(rNX*Z.s?{_ti|Ao%QD">
+        <value name="ADRESS">
+          <block type="math_number" id="~)/]I4M0t)k!h(52k-zB">
+            <field name="NUM">5</field>
+          </block>
+        </value>
+        <value name="NUMBER">
+          <block type="math_number" id="20`0=6FH~np^m!~iMm!W">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="(lUfJ!](^v_1Mwwk+D+s">
+            <field name="VAR">value</field>
+            <value name="VALUE">
+              <block type="wire_read" id="CW8cY!)^7z`!F3PTWXxZ"></block>
+            </value>
+            <next>
+              <block type="qliic_print" id="n:VioQ6!JH`r;3kmf@wr">
+                <field name="SERIAL_ID">Serial</field>
+                <field name="NEW_LINE">TRUE</field>
+                <value name="CONTENT">
+                  <block type="variables_get" id="J+R@b.Sc1ng+(C!aIr+M">
+                    <field name="VAR">value</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="qliic_lcd_clear" id="r#kFNGm@U/K;{Zdv7nz*">
+                    <next>
+                      <block type="qliic_lcd_print" id="o]qE/zSLtEd~Q]TqZ2Ky">
+                        <value name="CONTENT">
+                          <block type="text_join" id="%NK/P9PZ]i{]neuM^kGe">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="CVblX}CzeF^dIISiM8n,">
+                                <field name="TEXT">analog:</field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="variables_get" id="^Muu*2L]Bk5~x.2DEk;?">
+                                <field name="VAR">value</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="time_delay" id="p:2V.-xE.=~;=t{:^4Y-">
+                            <value name="DELAY_TIME_MILI">
+                              <block type="math_number" id="o?HICjDp(_/1K|{!c5j{">
+                                <field name="NUM">100</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

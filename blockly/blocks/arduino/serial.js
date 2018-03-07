@@ -412,6 +412,7 @@ Blockly.Blocks['qliic_loop'] = {
   }
 };
 //Qliic sensor blocks
+// qliic_sensor
 
 Blockly.Blocks['qliic_distance_read'] = {
   /**
@@ -449,12 +450,12 @@ Blockly.Blocks['qliic_analog_read'] = {
   }
 };
 
-Blockly.Blocks['qliic_compass_read'] = {
+Blockly.Blocks['qliic_magnenometer_read'] = {
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
     this.setColour(Blockly.Blocks.serial.HUE);
     this.appendDummyInput()
-      .appendField('Read compass degrees @30');
+      .appendField('Read magnetomer @30');
     this.setOutput(true, Blockly.Types.NUMBER.output);
   },
   /** @return {!string} The type of return value for the block, an integer. */
@@ -463,12 +464,45 @@ Blockly.Blocks['qliic_compass_read'] = {
   }
 };
 
+Blockly.Blocks['qliic_magnenometer_value'] = {
+  init: function() {
+    this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
+    this.setColour(Blockly.Blocks.serial.HUE);
+    this.appendDummyInput()
+      .appendField('Get magnetomer value')
+      .appendField(new Blockly.FieldDropdown(
+              Blockly.Arduino.Boards.selected.qliic_magnetometer), 'MAGNETOMETER_ID');
+
+    this.setOutput(true, Blockly.Types.NUMBER.output);
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
+  },
+/**
+ * Returns the serial instance name.
+ * @return {!string} Serial instance name.
+ * @this Blockly.Block
+ */
+getSerialSetupInstance: function() {
+  return this.getFieldValue('MAGNETOMETER_ID');
+},
+/**
+ * Updates the content of the the serial related fields.
+ * @this Blockly.Block
+ */
+updateFields: function() {
+  Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+      this, 'MAGNETOMETER_ID', 'serial');
+    }
+};
+
 Blockly.Blocks['qliic_gyroscope_read'] = {
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
     this.setColour(Blockly.Blocks.serial.HUE);
     this.appendDummyInput()
-      .appendField('Read gyroscope and acceleration @55');
+      .appendField('Read gyroscope and accelerometer @55');
     this.setOutput(true, Blockly.Types.NUMBER.output);
   },
   /** @return {!string} The type of return value for the block, an integer. */
@@ -476,6 +510,40 @@ Blockly.Blocks['qliic_gyroscope_read'] = {
     return Blockly.Types.NUMBER;
   }
 };
+
+Blockly.Blocks['qliic_gyroscope_value'] = {
+  init: function() {
+    this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
+    this.setColour(Blockly.Blocks.serial.HUE);
+    this.appendDummyInput()
+      .appendField('Get gyroscope value')
+      .appendField(new Blockly.FieldDropdown(
+              Blockly.Arduino.Boards.selected.qliic_gyroscope), 'MAGNETOMETER_ID');
+
+    this.setOutput(true, Blockly.Types.NUMBER.output);
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
+  },
+/**
+ * Returns the serial instance name.
+ * @return {!string} Serial instance name.
+ * @this Blockly.Block
+ */
+getSerialSetupInstance: function() {
+  return this.getFieldValue('MAGNETOMETER_ID');
+},
+/**
+ * Updates the content of the the serial related fields.
+ * @this Blockly.Block
+ */
+updateFields: function() {
+  Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+      this, 'MAGNETOMETER_ID', 'serial');
+    }
+};
+
 
 Blockly.Blocks['qliic_color_read'] = {
   /**
@@ -486,14 +554,47 @@ Blockly.Blocks['qliic_color_read'] = {
     this.setHelpUrl('http://www.arduino.cc/en/Serial/Print');
     this.setColour(Blockly.Blocks.serial.HUE);
     this.appendDummyInput()
-          .appendField('Read RGB color @41');
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
+          .appendField('Read color sensor @41');
+    this.setOutput(true, Blockly.Types.NUMBER.output);
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
   }
 };
 
-// qliic_lcd
+Blockly.Blocks['qliic_color_value'] = {
+  init: function() {
+    this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
+    this.setColour(Blockly.Blocks.serial.HUE);
+    this.appendDummyInput()
+      .appendField('Get color sensor value')
+      .appendField(new Blockly.FieldDropdown(
+              Blockly.Arduino.Boards.selected.qliic_color), 'MAGNETOMETER_ID');
+
+    this.setOutput(true, Blockly.Types.NUMBER.output);
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.NUMBER;
+  },
+/**
+ * Returns the serial instance name.
+ * @return {!string} Serial instance name.
+ * @this Blockly.Block
+ */
+getSerialSetupInstance: function() {
+  return this.getFieldValue('MAGNETOMETER_ID');
+},
+/**
+ * Updates the content of the the serial related fields.
+ * @this Blockly.Block
+ */
+updateFields: function() {
+  Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+      this, 'MAGNETOMETER_ID', 'serial');
+    }
+};
 
 // qliic_lcd
 

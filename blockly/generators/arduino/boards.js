@@ -92,7 +92,18 @@ Blockly.Arduino.Boards.profiles.uno = {
   pwmPins: [['3', '3'], ['5', '5'], ['6', '6'], ['9', '9'], ['10', '10'],
             ['11', '11']],
   serial: [['serial', 'Serial']],
+
   qliic_serial: [['Serial (USB)', 'Serial'],['Bluetooth', 'Bluetooth']],
+
+  qliic_magnetometer: [['Degre', 'magnetometerDegre'],['Axe X', 'magnetometerAxeX'],
+                      ['Axe Y', 'magnetometerAxeY'],['Axe Z', 'magnetometerAxeZ']],
+
+  qliic_gyroscope: [['Axe X', 'gyroscopeAxeX'],['Axe Y', 'gyroscopeAxeY'],['Axe Z', 'gyroscopeAxeZ'],
+                    ['Acceleration X', 'gyroscopeAccelX'],['Acceleration Y', 'gyroscopeAccelY'],['Acceleration Z', 'gyroscopeAccelZ']],
+
+   qliic_color: [['Red', 'colorRed'],['Green', 'colorGreen'],
+                       ['Blue', 'colorBlue'],['Intensity', 'colorIntensity']],
+
   serialPins: { Serial: [['RX', '0'], ['TX', '1']] },
   serialSpeed: [['300', '300'], ['600', '600'], ['1200', '1200'],
                 ['2400', '2400'], ['4800', '4800'], ['9600', '9600'],

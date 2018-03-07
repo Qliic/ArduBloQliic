@@ -265,20 +265,12 @@ Ardublockly.TOOLBOX_XML =
 '    <block type="qliic_i2c_scan"></block>' +
 '    <block type="qliic_distance_read"></block>' +
 '    <block type="qliic_analog_read"></block>' +
-'    <block type="qliic_compass_read"></block>' +
+'    <block type="qliic_magnenometer_read"></block>' +
+'    <block type="qliic_magnenometer_value"></block>' +
 '    <block type="qliic_color_read"></block>' +
+'    <block type="qliic_color_value"></block>' +
 '    <block type="qliic_gyroscope_read"></block>' +
-/*
-'    <block type="qliic_color_r"></block>' +
-'    <block type="qliic_color_g"></block>' +
-'    <block type="qliic_color_b"></block>' +
-'    <block type="qliic_gyro_x"></block>' +
-'    <block type="qliic_gyro_y"></block>' +
-'    <block type="qliic_gyro_z"></block>' +
-'    <block type="qliic_gyro_ax"></block>' +
-'    <block type="qliic_gyro_ay"></block>' +
-'    <block type="qliic_gyro_az"></block>' +
-*/
+'    <block type="qliic_gyroscope_value"></block>' +
 '  </category>' +
 '  <sep></sep>' +
 //FB

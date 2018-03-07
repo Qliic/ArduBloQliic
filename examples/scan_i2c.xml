@@ -1,92 +1,102 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="arduino_functions" id="*%Y~HOo7:02V5]x}:_M}" x="36" y="10">
-    <statement name="SETUP_FUNC">
-      <block type="wire_setup" id="3b4[w)K~Sw(ihE[T!`5_">
-        <next>
-          <block type="qliic_serial_setup" id="7T2x%EclKh?}6et7//bx">
-            <field name="SERIAL_ID">Serial</field>
-            <field name="SPEED">9600</field>
-          </block>
-        </next>
-      </block>
-    </statement>
+  <block type="arduino_functions" id="e,4O@AuS1+sT7uvOUyX." x="92" y="43">
     <statement name="LOOP_FUNC">
-      <block type="variables_set" id="-=*t[tDW,f*fc~WWe[Uj" collapsed="true">
-        <field name="VAR">error</field>
-        <value name="VALUE">
-          <block type="math_number" id="XQJZdLMHRijiNFUlg+@)">
-            <field name="NUM">0</field>
-          </block>
-        </value>
+      <block type="qliic_lcd_clear" id="?rrjJDV8)bB]T,*QQDP-">
         <next>
-          <block type="controls_for" id="L:15Nj=TLAY2At`27`ai">
-            <field name="VAR">address</field>
+          <block type="controls_for" id="6~mJVH+0sW.6t)g43sJ*">
+            <field name="VAR">i</field>
             <value name="FROM">
-              <block type="math_number" id="p;rk5],cb{MxpD~};o{E">
+              <block type="math_number" id="4~TUOiR[UA(/+jkZgiMv">
                 <field name="NUM">1</field>
               </block>
             </value>
             <value name="TO">
-              <block type="math_number" id="6S@/Mdp#J6EM(^p!UH/T">
-                <field name="NUM">127</field>
+              <block type="math_number" id=";0Jrt|Sr]![cgdbp+TQ*">
+                <field name="NUM">100</field>
               </block>
             </value>
             <value name="BY">
-              <block type="math_number" id="Qd9x6:9{E5:iN@R8~I`-">
+              <block type="math_number" id=";r]i,jmbGV/yg7%r9`ny">
                 <field name="NUM">1</field>
               </block>
             </value>
             <statement name="DO">
-              <block type="wire_begin" id="?nszybl(?L]`AulD2xlr">
-                <value name="CONTENT">
-                  <block type="variables_get" id="H`A44`~%9aRzCNyCbz6F">
-                    <field name="VAR">address</field>
+              <block type="qliic_lcd_cursor" id="0=4{#epOEKyk@vub0Br(">
+                <value name="CONTENTX">
+                  <block type="math_number" id="/Lg*;-W%J.Pf[p3z|QtP">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <value name="CONTENTY">
+                  <block type="math_number" id="%,H^_,do*TD{uhq)/Tzq">
+                    <field name="NUM">0</field>
                   </block>
                 </value>
                 <next>
-                  <block type="variables_set" id="=d*ZE`w[x^AO7F5a;pJX">
-                    <field name="VAR">error</field>
-                    <value name="VALUE">
-                      <block type="wire_end" id="p*pFJnWO[EFzvn6TuIzo"></block>
+                  <block type="qliic_lcd_print" id="|0vHoR.@Cd9zvstk.x?.">
+                    <value name="CONTENT">
+                      <block type="text" id="QYp6:NnW%I84A;Cyqf.|">
+                        <field name="TEXT">X:</field>
+                      </block>
                     </value>
                     <next>
-                      <block type="controls_if" id="N93C~L8c*Rk0gph2[vh(">
-                        <value name="IF0">
-                          <block type="logic_compare" id="nYwa1r]-BhPVGyyT4JkP">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="variables_get" id="`2NgLa#Q~N8[fEb:5.A|">
-                                <field name="VAR">error</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="math_number" id="jDLwUFpqFnA!G]%QwV6|">
+                      <block type="qliic_lcd_print" id="2=5u+x^HQTtpCIRU28Br">
+                        <value name="CONTENT">
+                          <block type="variables_get" id="]X%S:oc9^L57D1^pH+:]">
+                            <field name="VAR">i</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="qliic_lcd_cursor" id="lN(p46~49}zxLVHETRwA">
+                            <value name="CONTENTX">
+                              <block type="math_number" id="fHl!2JL#FOvVx4,-e0d+">
                                 <field name="NUM">0</field>
                               </block>
                             </value>
-                          </block>
-                        </value>
-                        <statement name="DO0">
-                          <block type="qliic_print" id="ql7CKXIswZdsghCheS9c">
-                            <field name="SERIAL_ID">Serial</field>
-                            <field name="NEW_LINE">TRUE</field>
-                            <value name="CONTENT">
-                              <block type="text_join" id="ND/WVGF!I[/tdX)5eELQ">
-                                <mutation items="2"></mutation>
-                                <value name="ADD0">
-                                  <block type="text" id="nL^%x;0L)E4Jp-Ldah~#">
-                                    <field name="TEXT">I2C device @ </field>
-                                  </block>
-                                </value>
-                                <value name="ADD1">
-                                  <block type="variables_get" id="C)v4%RXP)S5)]nuyY,5v">
-                                    <field name="VAR">address</field>
-                                  </block>
-                                </value>
+                            <value name="CONTENTY">
+                              <block type="math_number" id="%pv+6v2WlovV3tSP#ow3">
+                                <field name="NUM">1</field>
                               </block>
                             </value>
+                            <next>
+                              <block type="qliic_lcd_print" id="lJ#GOkMF-)*XAB8{~3Rt">
+                                <value name="CONTENT">
+                                  <block type="text" id="R{TQZDS^G+A{S,[Q;Bca">
+                                    <field name="TEXT">Y:</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="qliic_lcd_print" id="*.Xe=FdNLA{N2fQA^i|k">
+                                    <value name="CONTENT">
+                                      <block type="math_arithmetic" id="1CTa[JounU7^,.4Unw6q">
+                                        <field name="OP">MULTIPLY</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="gj*=Jv%WT9#,DLpHrReu">
+                                            <field name="VAR">i</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="jkX{5?bWX%Dw^ij=4O@[">
+                                            <field name="NUM">10</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="time_delay" id="BC/LWg8Fyoxx1m7Qjb{r">
+                                        <value name="DELAY_TIME_MILI">
+                                          <block type="math_number" id="tgOM/GPN]9zAYLU!QGoR">
+                                            <field name="NUM">100</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
                           </block>
-                        </statement>
+                        </next>
                       </block>
                     </next>
                   </block>

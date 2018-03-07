@@ -92,7 +92,7 @@ Blockly.Arduino['qliic_print'] = function(block) {
 //Qliic Scan I2C
 
 Blockly.Arduino['qliic_i2c_scan'] = function(block) {
-  //Blockly.Arduino.addInclude('i2c_scan1', '#include <Wire.h>');
+  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
   Blockly.Arduino.addInclude('qliic_i2c_scan', '#include <QliicScan.h>');
   Blockly.Arduino.addSetup('qliic_i2c_scan', 'setupDetecterI2C();', true);
   var code = 'detecterI2C();\n';
@@ -230,163 +230,49 @@ Blockly.Arduino['qliic_analog_read'] = function(block) {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
-Blockly.Arduino['qliic_compass_read'] = function(block) {
-  Blockly.Arduino.addInclude('compass', '#include <QliicCompass.h>');
-  Blockly.Arduino.addSetup('compass', 'QliicCompassSetup();', true);
-  var code = 'ReadCompassDegrees()';
+Blockly.Arduino['qliic_magnenometer_read'] = function(block) {
+  Blockly.Arduino.addInclude('magnetometer1', 'boolean magnetometer = false;');
+  Blockly.Arduino.addInclude('magnetometer2', 'int magnetometerAxeX, magnetometerAxeY, magnetometerAxeZ, magnetometerDegre;');
+  Blockly.Arduino.addInclude('magnetometer3', '#include <QliicMagnetometer.h>');
+
+  Blockly.Arduino.addSetup('compass', 'magnetometerSetup();', true);
+  var code = 'magnetometerRead()';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['qliic_magnenometer_value'] = function(block) {
+  var magnetometerId = block.getFieldValue('MAGNETOMETER_ID');
+  var code = magnetometerId;
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino['qliic_gyroscope_read'] = function(block) {
+  Blockly.Arduino.addInclude('magnetometer1', 'boolean magnetometer = false;');
+  Blockly.Arduino.addInclude('magnetometer2', 'int magnetometerAxeX, magnetometerAxeY, magnetometerAxeZ, magnetometerDegre;');
   Blockly.Arduino.addInclude('gyroscope', '#include <QliicGyroscope.h>');
   Blockly.Arduino.addSetup('gyroscope', 'QliicGyroscopeSetup();', true);
   var code = 'ReadGyroscopeAcceleration()';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
+Blockly.Arduino['qliic_gyroscope_value'] = function(block) {
+  var magnetometerId = block.getFieldValue('MAGNETOMETER_ID');
+  var code = magnetometerId;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
 Blockly.Arduino['qliic_color_read'] = function(block) {
+  Blockly.Arduino.addInclude('magnetometer1', 'boolean magnetometer = false;');
+  Blockly.Arduino.addInclude('magnetometer2', 'int magnetometerAxeX, magnetometerAxeY, magnetometerAxeZ, magnetometerDegre;');
   Blockly.Arduino.addInclude('color', '#include <QliicColor.h>');
   Blockly.Arduino.addSetup('color', 'QliicColorSetup();', true);
   var code = 'ReadRGBColor()';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_color_r'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_color_g'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_color_b'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_gyro_read'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_gyro_x'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_gyro_y'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_gyro_z'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_gyro_ax'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_gyro_ay'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
-  return [code, Blockly.Arduino.ORDER_ATOMIC];
-};
-
-
-/**
- * Code generator for block for setting the serial com speed.
- * Arduino code: setup{ Serial.begin(X); }
- * @param {!Blockly.Block} block Block to generate the code from.
- * @return {array} Completed code.
- */
-Blockly.Arduino['qliic_gyro_az'] = function(block) {
-  Blockly.Arduino.addInclude('wire', '#include <Wire.h>');
-  Blockly.Arduino.addSetup('wire', 'Wire.begin();', true);
-  var code = 'Wire.available()';
+Blockly.Arduino['qliic_color_value'] = function(block) {
+  var magnetometerId = block.getFieldValue('MAGNETOMETER_ID');
+  var code = magnetometerId;
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -425,6 +311,6 @@ Blockly.Arduino['qliic_lcd_cursor'] = function(block) {
       block, 'CONTENTX', Blockly.Arduino.ORDER_ATOMIC) || '0';
   var contenty = Blockly.Arduino.valueToCode(
       block, 'CONTENTY', Blockly.Arduino.ORDER_ATOMIC) || '0';
-  var code = 'LCD.setcursor('+contentx+','+contenty+');\n';
+  var code = 'LCD.setCursor('+contentx+','+contenty+');\n';
   return code;
 };

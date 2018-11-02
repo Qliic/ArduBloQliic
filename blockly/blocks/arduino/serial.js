@@ -421,9 +421,9 @@ Blockly.Blocks['qliic_distance_read'] = {
    */
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(30);
     this.appendDummyInput()
-      .appendField('Read distance @4');
+      .appendField('Read distance sensor @ 2-3');
     this.setOutput(true, Blockly.Types.NUMBER.output);
   },
   /** @return {!string} The type of return value for the block, an integer. */
@@ -439,7 +439,7 @@ Blockly.Blocks['qliic_analog_read'] = {
    */
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(60);
     this.appendDummyInput()
       .appendField('Read analog value @5');
     this.setOutput(true, Blockly.Types.NUMBER.output);
@@ -453,7 +453,7 @@ Blockly.Blocks['qliic_analog_read'] = {
 Blockly.Blocks['qliic_magnenometer_read'] = {
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(90);
     this.appendDummyInput()
       .appendField('Read magnetomer @30');
     this.setOutput(true, Blockly.Types.NUMBER.output);
@@ -467,7 +467,7 @@ Blockly.Blocks['qliic_magnenometer_read'] = {
 Blockly.Blocks['qliic_magnenometer_value'] = {
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(90);
     this.appendDummyInput()
       .appendField('Get magnetomer value')
       .appendField(new Blockly.FieldDropdown(
@@ -500,7 +500,7 @@ updateFields: function() {
 Blockly.Blocks['qliic_gyroscope_read'] = {
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(150);
     this.appendDummyInput()
       .appendField('Read gyroscope and accelerometer @55');
     this.setOutput(true, Blockly.Types.NUMBER.output);
@@ -514,7 +514,7 @@ Blockly.Blocks['qliic_gyroscope_read'] = {
 Blockly.Blocks['qliic_gyroscope_value'] = {
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(150);
     this.appendDummyInput()
       .appendField('Get gyroscope value')
       .appendField(new Blockly.FieldDropdown(
@@ -552,7 +552,7 @@ Blockly.Blocks['qliic_color_read'] = {
    */
   init: function() {
     this.setHelpUrl('http://www.arduino.cc/en/Serial/Print');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(200);
     this.appendDummyInput()
           .appendField('Read color sensor @41');
     this.setOutput(true, Blockly.Types.NUMBER.output);
@@ -563,20 +563,20 @@ Blockly.Blocks['qliic_color_read'] = {
   }
 };
 
-Blockly.Blocks['qliic_color_value'] = {
+Blockly.Blocks['qliic_button_read'] = {
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(60);
     this.appendDummyInput()
-      .appendField('Get color sensor value')
+      .appendField('Read button @')
       .appendField(new Blockly.FieldDropdown(
-              Blockly.Arduino.Boards.selected.qliic_color), 'MAGNETOMETER_ID');
+              Blockly.Arduino.Boards.selected.analogPins), 'BUTTON_ID');
 
-    this.setOutput(true, Blockly.Types.NUMBER.output);
+    this.setOutput(true, Blockly.Types.BOOLEAN.output);
   },
   /** @return {!string} The type of return value for the block, an integer. */
   getBlockType: function() {
-    return Blockly.Types.NUMBER;
+    return Blockly.Types.BOOLEAN;
   },
 /**
  * Returns the serial instance name.
@@ -584,7 +584,7 @@ Blockly.Blocks['qliic_color_value'] = {
  * @this Blockly.Block
  */
 getSerialSetupInstance: function() {
-  return this.getFieldValue('MAGNETOMETER_ID');
+  return this.getFieldValue('BUTTON_ID');
 },
 /**
  * Updates the content of the the serial related fields.
@@ -592,16 +592,101 @@ getSerialSetupInstance: function() {
  */
 updateFields: function() {
   Blockly.Arduino.Boards.refreshBlockFieldDropdown(
-      this, 'MAGNETOMETER_ID', 'serial');
+      this, 'BUTTON_ID', 'serial');
     }
 };
+
+
+Blockly.Blocks['qliic_infrared_read'] = {
+  init: function() {
+    this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
+    this.setColour(90);
+    this.appendDummyInput()
+      .appendField('Read infrared sensor @')
+      .appendField(new Blockly.FieldDropdown(
+              Blockly.Arduino.Boards.selected.analogPins), 'BUTTON_ID');
+
+    this.setOutput(true, Blockly.Types.BOOLEAN.output);
+  },
+  /** @return {!string} The type of return value for the block, an integer. */
+  getBlockType: function() {
+    return Blockly.Types.BOOLEAN;
+  },
+/**
+ * Returns the serial instance name.
+ * @return {!string} Serial instance name.
+ * @this Blockly.Block
+ */
+getSerialSetupInstance: function() {
+  return this.getFieldValue('BUTTON_ID');
+},
+/**
+ * Updates the content of the the serial related fields.
+ * @this Blockly.Block
+ */
+updateFields: function() {
+  Blockly.Arduino.Boards.refreshBlockFieldDropdown(
+      this, 'BUTTON_ID', 'serial');
+    }
+};
+
+// qliic_tone
+
+Blockly.Blocks['qliic_tone_note'] = {
+  /**
+   * Block for reading an analogue input.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(0);
+    this.appendDummyInput()
+      .appendField('Play note @ 4');
+    this.appendValueInput('CONTENTX');
+    this.appendValueInput('CONTENTY');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
+Blockly.Blocks['qliic_tone_frequency'] = {
+  /**
+   * Block for reading an analogue input.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(0);
+    this.appendDummyInput()
+      .appendField('Play frequency @ 4');
+    this.appendValueInput('CONTENTX');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
+Blockly.Blocks['qliic_tone_silence'] = {
+  /**
+   * Block for reading an analogue input.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(0);
+    this.appendDummyInput()
+      .appendField('Silence @ 4');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
 
 // qliic_lcd
 
 Blockly.Blocks['qliic_lcd_setup'] = {
   init: function() {
     this.setHelpUrl('http://www.arduino.cc/en/Serial/Print');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(260);
     this.appendDummyInput()
         .appendField('Setup LCD')
     this.setInputsInline(true);
@@ -617,7 +702,7 @@ Blockly.Blocks['qliic_lcd_clear'] = {
    */
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(260);
     this.appendDummyInput()
       .appendField('Clear LCD');
     this.setInputsInline(true);
@@ -633,7 +718,7 @@ Blockly.Blocks['qliic_lcd_cursor'] = {
    */
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(260);
     this.appendDummyInput()
       .appendField('Set LCD cursor @ line:');
     this.appendValueInput('CONTENTX');
@@ -651,10 +736,31 @@ Blockly.Blocks['qliic_lcd_print'] = {
    */
   init: function() {
     this.setHelpUrl('http://arduino.cc/en/Reference/AnalogRead');
-    this.setColour(Blockly.Blocks.serial.HUE);
+    this.setColour(260);
     this.appendDummyInput()
       .appendField('LCD print');
     this.appendValueInput('CONTENT');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+  }
+};
+
+Blockly.Blocks['qliic_rgb'] = {
+  /**
+   * Block for reading an analogue input.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setColour(200);
+    this.appendDummyInput().appendField('Set RGB led @ ');
+    this.appendValueInput('CONTENTP');
+//    this.appendField('Red');
+    this.appendValueInput('CONTENTX');
+//    this.appendField('Green');
+    this.appendValueInput('CONTENTY');
+//    this.appendField('Blue');
+    this.appendValueInput('CONTENTZ');
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

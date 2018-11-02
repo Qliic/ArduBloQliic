@@ -101,8 +101,7 @@ Blockly.Arduino.Boards.profiles.uno = {
   qliic_gyroscope: [['Axe X', 'gyroscopeAxeX'],['Axe Y', 'gyroscopeAxeY'],['Axe Z', 'gyroscopeAxeZ'],
                     ['Acceleration X', 'gyroscopeAccelX'],['Acceleration Y', 'gyroscopeAccelY'],['Acceleration Z', 'gyroscopeAccelZ']],
 
-   qliic_color: [['Red', 'colorRed'],['Green', 'colorGreen'],
-                       ['Blue', 'colorBlue'],['Intensity', 'colorIntensity']],
+   qliic_color: Blockly.Arduino.Boards.generateAnalogIo(0, 5),
 
   serialPins: { Serial: [['RX', '0'], ['TX', '1']] },
   serialSpeed: [['300', '300'], ['600', '600'], ['1200', '1200'],

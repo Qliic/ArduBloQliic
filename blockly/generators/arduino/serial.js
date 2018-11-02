@@ -270,9 +270,17 @@ Blockly.Arduino['qliic_color_read'] = function(block) {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
-Blockly.Arduino['qliic_color_value'] = function(block) {
-  var magnetometerId = block.getFieldValue('MAGNETOMETER_ID');
-  var code = magnetometerId;
+Blockly.Arduino['qliic_button_read'] = function(block) {
+  var buttonId = block.getFieldValue('BUTTON_ID');
+  Blockly.Arduino.addSetup('button', 'pinMode('+buttonId+', INPUT_PULLUP);', true);
+  var code = '! digitalRead('+buttonId+')';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['qliic_infrared_read'] = function(block) {
+  var buttonId = block.getFieldValue('BUTTON_ID');
+  Blockly.Arduino.addSetup('infrared', 'pinMode('+buttonId+', INPUT);', true);
+  var code = '! digitalRead('+buttonId+')';
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
@@ -302,15 +310,64 @@ Blockly.Arduino['qliic_lcd_print'] = function(block) {
 };
 
 Blockly.Arduino['qliic_lcd_clear'] = function(block) {
+  Blockly.Arduino.addInclude('lcd_1', '#include <LiquidCrystal_I2C.h>');
+  Blockly.Arduino.addInclude('lcd_2', 'LiquidCrystal_I2C LCD(39,16,2);');
+  Blockly.Arduino.addSetup('lcd_1', 'LCD.init();', true);
+  Blockly.Arduino.addSetup('lcd_2', 'LCD.backlight();', true);
   var code = 'LCD.clear();\n';
   return code;
 };
 
 Blockly.Arduino['qliic_lcd_cursor'] = function(block) {
+  Blockly.Arduino.addInclude('lcd_1', '#include <LiquidCrystal_I2C.h>');
+  Blockly.Arduino.addInclude('lcd_2', 'LiquidCrystal_I2C LCD(39,16,2);');
+  Blockly.Arduino.addSetup('lcd_1', 'LCD.init();', true);
+  Blockly.Arduino.addSetup('lcd_2', 'LCD.backlight();', true);
   var contentx = Blockly.Arduino.valueToCode(
       block, 'CONTENTX', Blockly.Arduino.ORDER_ATOMIC) || '0';
   var contenty = Blockly.Arduino.valueToCode(
       block, 'CONTENTY', Blockly.Arduino.ORDER_ATOMIC) || '0';
   var code = 'LCD.setCursor('+contentx+','+contenty+');\n';
+  return code;
+};
+
+
+
+Blockly.Arduino['qliic_tone_frequency'] = function(block) {
+  var contentx = Blockly.Arduino.valueToCode(
+      block, 'CONTENTX', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var code = 'tone(4,'+contentx+');\n';
+  return code;
+};
+
+Blockly.Arduino['qliic_tone_note'] = function(block) {
+  var contentx = Blockly.Arduino.valueToCode(
+      block, 'CONTENTX', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var contenty = Blockly.Arduino.valueToCode(
+      block, 'CONTENTY', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var code = 'tone(4,'+contentx+','+contenty+');\n';
+  return code;
+};
+
+Blockly.Arduino['qliic_tone_silence'] = function(block) {
+  var code = 'noTone(4);\n';
+  return code;
+};
+
+Blockly.Arduino['qliic_rgb'] = function(block) {
+  var pin = Blockly.Arduino.valueToCode(
+      block, 'CONTENTP', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  Blockly.Arduino.addInclude('rgb_1', '#include <Adafruit_NeoPixel.h>');
+  Blockly.Arduino.addInclude('rgb_'+pin, 'Adafruit_NeoPixel pixel_'+pin+' = Adafruit_NeoPixel(1, '+pin+', NEO_GRB + NEO_KHZ800);');
+  Blockly.Arduino.addSetup('rgb_'+pin, 'pixel_'+pin+'.begin();', true);
+  var contentp = Blockly.Arduino.valueToCode(
+      block, 'CONTENTP', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var contentx = Blockly.Arduino.valueToCode(
+      block, 'CONTENTX', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var contenty = Blockly.Arduino.valueToCode(
+      block, 'CONTENTY', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var contentz = Blockly.Arduino.valueToCode(
+      block, 'CONTENTZ', Blockly.Arduino.ORDER_ATOMIC) || '0';
+  var code = 'pixel_'+pin+'.setPixelColor(0, pixel_'+pin+'.Color('+contentx+','+contenty+','+contentz+'));\npixel_'+pin+'.show();\n';
   return code;
 };

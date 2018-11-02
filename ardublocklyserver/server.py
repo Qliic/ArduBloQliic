@@ -75,16 +75,16 @@ def index_redirect():
     return static_file('ArdublocklySketch.ino.hex',
                        root=os.path.join(document_root, 'ardublockly', 'BUILD'), mimetype='text/plain')
 
-@app.route('/nano')
+@app.route('/uf2')
 def index_redirect():
     """Redirect the server entry point to the Ardublockly front end."""
     print('NANO:')
     print(os.path.join(document_root, 'ardublockly', 'BUILD'))
 
-    return static_file('ArdublocklySketch.ino.hex',
+    return static_file('flash.uf2',
                        root=os.path.join(document_root, 'ardublockly', 'BUILD'), mimetype='application/nano')
 
-@app.route('/uno')
+@app.route('/nano')
 def index_redirect():
     """Redirect the server entry point to the Ardublockly front end."""
     return static_file('ArdublocklySketch.ino.hex',

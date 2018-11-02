@@ -1,21 +1,25 @@
-// Describe this function...
-void do_something() {
-  digitalWrite(13, HIGH);
-  delay(200);
-  digitalWrite(13, LOW);
-  delay(200);
-  digitalWrite(13, HIGH);
-  delay(100);
-  digitalWrite(13, LOW);
-  delay(100);
-}
-
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C LCD(39,16,2);
 
 void setup() {
-  pinMode(13, OUTPUT);
+  Serial.begin(9600);
+  pinMode(A0, INPUT_PULLUP);
+  LCD.init();
+  LCD.backlight();
+
+  LCD.clear();
+
 }
 
 void loop() {
-  do_something();
+  if (! digitalRead(A0)) {
+    LCD.setCursor(0,0);
+    LCD.print("on ");
+    Serial.println("on");
+  }
+  if (!! digitalRead(A0)) {
+    LCD.setCursor(0,0);
+    LCD.print("off");
+  }
 
 }

@@ -1,8 +1,8 @@
-# 1 "/home/francois/GIT/ArdubloQliic/ardublockly/BUILD/sketch/ArdublocklySketch.ino.cpp"
-# 1 "/home/francois/GIT/ArdubloQliic//"
+# 1 "/home/francois/GIT/ArdubloQliic/ardublockly/BUILD/sketch/temp.ino.cpp"
+# 1 "/home/francois/Program/arduino-1.6.8//"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "/home/francois/GIT/ArdubloQliic/ardublockly/BUILD/sketch/ArdublocklySketch.ino.cpp"
+# 1 "/home/francois/GIT/ArdubloQliic/ardublockly/BUILD/sketch/temp.ino.cpp"
 # 1 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino/Arduino.h" 1
 /*
   Arduino.h - Main include file for the Arduino SDK
@@ -8959,7 +8959,30 @@ long map(long, long, long, long, long);
 
 
 
-# 1 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard/pins_arduino.h" 1
+# 1 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs/pins_arduino.h" 1
+/*
+  pins_arduino.h - Pin definition functions for Arduino
+  Part of Arduino - http://www.arduino.cc/
+
+  Copyright (c) 2007 David A. Mellis
+
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General
+  Public License along with this library; if not, write to the
+  Free Software Foundation, Inc., 59 Temple Place, Suite 330,
+  Boston, MA  02111-1307  USA
+*/
+
+# 1 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs/../standard/pins_arduino.h" 1
 /*
   pins_arduino.h - Pin definition functions for Arduino
   Part of Arduino - http://www.arduino.cc/
@@ -9066,8 +9089,8 @@ long map(long, long, long, long, long);
     command register (\c NVM.CMD or \c NVM_CMD) is set to 0x00 (NOP)
     before using any of these functions.
 */
-# 27 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard/pins_arduino.h" 2
-# 43 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard/pins_arduino.h"
+# 27 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs/../standard/pins_arduino.h" 2
+# 43 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs/../standard/pins_arduino.h"
 static const uint8_t SS = (10);
 static const uint8_t MOSI = (11);
 static const uint8_t MISO = (12);
@@ -9078,7 +9101,7 @@ static const uint8_t SCK = (13);
 
 static const uint8_t SDA = (18);
 static const uint8_t SCL = (19);
-# 65 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard/pins_arduino.h"
+# 65 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs/../standard/pins_arduino.h"
 static const uint8_t A0 = (14);
 static const uint8_t A1 = (15);
 static const uint8_t A2 = (16);
@@ -9087,7 +9110,7 @@ static const uint8_t A4 = (18);
 static const uint8_t A5 = (19);
 static const uint8_t A6 = (20);
 static const uint8_t A7 = (21);
-# 236 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/standard/pins_arduino.h"
+# 236 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs/../standard/pins_arduino.h"
 // These serial port names are intended to allow libraries and architecture-neutral
 // sketches to automatically default to the correct port name for a particular type
 // of use.  For example, a GPS module would normally connect to SERIAL_PORT_HARDWARE_OPEN,
@@ -9103,15 +9126,243 @@ static const uint8_t A7 = (21);
 //
 // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
 //                            pins are NOT connected to anything by default.
+# 24 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/variants/eightanaloginputs/pins_arduino.h" 2
 # 258 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino/Arduino.h" 2
-# 2 "/home/francois/GIT/ArdubloQliic/ardublockly/BUILD/sketch/ArdublocklySketch.ino.cpp" 2
-# 1 "/home/francois/GIT/ArdubloQliic/ardublockly/BUILD/sketch/ArdublocklySketch.ino.cpp"
-# 1 "/home/francois/GIT/ArduBloQliic/ardublockly/ArdublocklySketch/ArdublocklySketch.ino"
-boolean magnetometer = false;
-int magnetometerAxeX, magnetometerAxeY, magnetometerAxeZ, magnetometerDegre;
-# 1 "/home/francois/Arduino/libraries/Qliinclude/QliicMagnetometer.h" 1
-// QliicMagnetometer.h
+# 2 "/home/francois/GIT/ArdubloQliic/ardublockly/BUILD/sketch/temp.ino.cpp" 2
+# 1 "/home/francois/GIT/ArdubloQliic/ardublockly/BUILD/sketch/temp.ino.cpp"
+# 1 "/home/francois/Arduino/temp/temp.ino"
+# 1 "/home/francois/Arduino/libraries/Adafruit_NeoPixel-master/Adafruit_NeoPixel.h" 1
+/*--------------------------------------------------------------------
+  This file is part of the Adafruit NeoPixel library.
 
+  NeoPixel is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as
+  published by the Free Software Foundation, either version 3 of
+  the License, or (at your option) any later version.
+
+  NeoPixel is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with NeoPixel.  If not, see
+  <http://www.gnu.org/licenses/>.
+  --------------------------------------------------------------------*/
+
+
+
+
+
+# 1 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino/Arduino.h" 1
+/*
+  Arduino.h - Main include file for the Arduino SDK
+  Copyright (c) 2005-2013 Arduino Team.  All right reserved.
+
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+# 24 "/home/francois/Arduino/libraries/Adafruit_NeoPixel-master/Adafruit_NeoPixel.h" 2
+
+
+
+
+
+// The order of primary colors in the NeoPixel data stream can vary
+// among device types, manufacturers and even different revisions of
+// the same item.  The third parameter to the Adafruit_NeoPixel
+// constructor encodes the per-pixel byte offsets of the red, green
+// and blue primaries (plus white, if present) in the data stream --
+// the following #defines provide an easier-to-use named version for
+// each permutation.  e.g. NEO_GRB indicates a NeoPixel-compatible
+// device expecting three bytes per pixel, with the first byte
+// containing the green value, second containing red and third
+// containing blue.  The in-memory representation of a chain of
+// NeoPixels is the same as the data-stream order; no re-ordering of
+// bytes is required when issuing data to the chain.
+
+// Bits 5,4 of this value are the offset (0-3) from the first byte of
+// a pixel to the location of the red color byte.  Bits 3,2 are the
+// green offset and 1,0 are the blue offset.  If it is an RGBW-type
+// device (supporting a white primary in addition to R,G,B), bits 7,6
+// are the offset to the white byte...otherwise, bits 7,6 are set to
+// the same value as 5,4 (red) to indicate an RGB (not RGBW) device.
+// i.e. binary representation:
+// 0bWWRRGGBB for RGBW devices
+// 0bRRRRGGBB for RGB
+
+// RGB NeoPixel permutations; white and red offsets are always same
+// Offset:         W          R          G          B
+
+
+
+
+
+
+
+// RGBW NeoPixel permutations; all 4 offsets are distinct
+// Offset:         W          R          G          B
+# 91 "/home/francois/Arduino/libraries/Adafruit_NeoPixel-master/Adafruit_NeoPixel.h"
+// Add NEO_KHZ400 to the color order value to indicate a 400 KHz
+// device.  All but the earliest v1 NeoPixels expect an 800 KHz data
+// stream, this is the default if unspecified.  Because flash space
+// is very limited on ATtiny devices (e.g. Trinket, Gemma), v1
+// NeoPixels aren't handled by default on those chips, though it can
+// be enabled by removing the ifndef/endif below -- but code will be
+// bigger.  Conversely, can disable the NEO_KHZ400 line on other MCUs
+// to remove v1 support and save a little space.
+
+
+
+
+
+
+// If 400 KHz support is enabled, the third parameter to the constructor
+// requires a 16-bit value (in order to select 400 vs 800 KHz speed).
+// If only 800 KHz is enabled (as is default on ATtiny), an 8-bit value
+// is sufficient to encode pixel color order, saving some space.
+
+
+typedef uint16_t neoPixelType;
+
+
+
+
+class Adafruit_NeoPixel {
+
+ public:
+
+  // Constructor: number of LEDs, pin number, LED type
+  Adafruit_NeoPixel(uint16_t n, uint8_t p=6, neoPixelType t=((1 << 6) | (1 << 4) | (0 << 2) | (2)) + 0x0000 /* 800 KHz datastream*/);
+  Adafruit_NeoPixel(void);
+  ~Adafruit_NeoPixel();
+
+  void
+    begin(void),
+    show(void),
+    setPin(uint8_t p),
+    setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b),
+    setPixelColor(uint16_t n, uint8_t r, uint8_t g, uint8_t b, uint8_t w),
+    setPixelColor(uint16_t n, uint32_t c),
+    setBrightness(uint8_t),
+    clear(),
+    updateLength(uint16_t n),
+    updateType(neoPixelType t);
+  uint8_t
+   *getPixels(void) const,
+    getBrightness(void) const;
+  int8_t
+    getPin(void) { return pin; };
+  uint16_t
+    numPixels(void) const;
+  static uint32_t
+    Color(uint8_t r, uint8_t g, uint8_t b),
+    Color(uint8_t r, uint8_t g, uint8_t b, uint8_t w);
+  uint32_t
+    getPixelColor(uint16_t n) const;
+  inline bool
+    canShow(void) { return (micros() - endTime) >= 300L; }
+
+ protected:
+
+  boolean
+
+    is800KHz, // ...true if 800 KHz pixels
+
+    begun; // true if begin() previously called
+  uint16_t
+    numLEDs, // Number of RGB LEDs in strip
+    numBytes; // Size of 'pixels' buffer below (3 or 4 bytes/pixel)
+  int8_t
+    pin; // Output pin number (-1 if not yet set)
+  uint8_t
+    brightness,
+   *pixels, // Holds LED color values (3 or 4 bytes each)
+    rOffset, // Index of red byte within each 3- or 4-byte pixel
+    gOffset, // Index of green byte
+    bOffset, // Index of blue byte
+    wOffset; // Index of white byte (same as rOffset if no white)
+  uint32_t
+    endTime; // Latch timing reference
+
+  volatile uint8_t
+    *port; // Output PORT register
+  uint8_t
+    pinMask; // Output PORT bitmask
+
+};
+# 2 "/home/francois/Arduino/temp/temp.ino" 2
+Adafruit_NeoPixel pixel_8 = Adafruit_NeoPixel(1, 8, ((1 << 6) | (1 << 4) | (0 << 2) | (2)) + 0x0000 /* 800 KHz datastream*/);
+# 1 "/home/francois/Arduino/libraries/LiquidCrystal_I2C-master/LiquidCrystal_I2C.h" 1
+//YWROBOT
+
+
+
+# 1 "/home/francois/.arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/inttypes.h" 1 3
+/* Copyright (c) 2004,2005,2007,2012 Joerg Wunsch
+   Copyright (c) 2005, Carlos Lamas
+   All rights reserved.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
+
+   * Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+
+   * Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in
+     the documentation and/or other materials provided with the
+     distribution.
+
+   * Neither the name of the copyright holders nor the names of
+     contributors may be used to endorse or promote products derived
+     from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE. */
+
+/* $Id$ */
+# 6 "/home/francois/Arduino/libraries/LiquidCrystal_I2C-master/LiquidCrystal_I2C.h" 2
+# 1 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino/Print.h" 1
+/*
+  Print.h - Base class that provides print() and println()
+  Copyright (c) 2008 David A. Mellis.  All right reserved.
+
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+# 7 "/home/francois/Arduino/libraries/LiquidCrystal_I2C-master/LiquidCrystal_I2C.h" 2
 # 1 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src/Wire.h" 1
 /*
   TwoWire.h - TWI/I2C library for Arduino & Wiring
@@ -9249,177 +9500,6 @@ class TwoWire : public Stream
 };
 
 extern TwoWire Wire;
-# 4 "/home/francois/Arduino/libraries/Qliinclude/QliicMagnetometer.h" 2
-
-//boolean magnetometer = false;
-//int magnetometerAxeX, magnetometerAxeY, magnetometerAxeZ, magnetometerDegre;
-
-String magnetometerRead(){
-
-  const int address=30; //0x1E;
-  int x,y,z; //triple axis data
-  int xmin,xmax,ymin,ymax,zmin,zmax;
-  xmin=0; xmax=0; ymax=0; ymin = 0; zmin=0;zmax=0;
-
-  //Tell the HMC5883 where to begin reading data
-  Wire.beginTransmission(address);
-  Wire.write(0x03); //select register 3, X MSB register
-  Wire.endTransmission();
-
-
- //Read data from each axis, 2 registers per axis
-  Wire.requestFrom(address, 6);
-  if(6<=Wire.available()){
-    x = Wire.read()<<8; //X msb
-    x |= Wire.read(); //X lsb
-    z = Wire.read()<<8; //Z msb
-    z |= Wire.read(); //Z lsb
-    z = -z; //inversion du module
-    y = Wire.read()<<8; //Y msb
-    y |= Wire.read(); //Y lsb
-  }
-
-  magnetometerAxeX = x;
-  magnetometerAxeY = y;
-  magnetometerAxeZ = z;
-
-  // Hold the module so that Z is pointing 'up' and you can measure the heading with x&y
-  // Calculate heading when the magnetometer is level, then correct for signs of axis.
-
-  float heading = atan2(y, x);
-
-  // Once you have your heading, you must then add your 'Declination Angle', which is the 'Error' of the magnetic field in your location.
-  // Find yours here: http://www.magnetic-declination.com/
-  // Mine is: -13* 2' W, which is ~13 Degrees, or (which we need) 0.22 radians
-  // If you cannot find your Declination, comment out these two lines, your compass will be slightly off.
-
-  float declinationAngle = 0.22;
-  heading += declinationAngle;
-
-  // Correct for when signs are reversed.
-
-  if(heading < 0)
-    heading += 2*3.1415926535897932384626433832795;
-
-  // Check for wrap due to addition of declination.
-
-  if(heading > 2*3.1415926535897932384626433832795)
-    heading -= 2*3.1415926535897932384626433832795;
-
-  // Convert radians to degrees for readability.
-
-  float headingDegrees = heading * 180/3.14159265358979323846 /* pi */;
-
-  //Serial.println(headingDegrees);
-
-  int degre = (int) headingDegrees;
-
-  magnetometerDegre = degre;
-
-  char buf[80];
-  sprintf(buf,"d:%i,x:%i,y:%i,z:%i",degre, x, y, z);
-  return buf;
-
-}
-
-void magnetometerSetup() {
-  String message;
-
-  Wire.begin();
-
-  //Put the HMC5883 IC into the correct operating mode
-  const int address=30; //0x1E
-
-  Wire.beginTransmission(address); //open communication with HMC5883
-  Wire.write(0x02); //select mode register
-  Wire.write(0x00); //continuous measurement mode
-  int error = Wire.endTransmission();
-
-  if (error == 0) {
-    magnetometer = true;
-  }
-}
-# 4 "/home/francois/GIT/ArduBloQliic/ardublockly/ArdublocklySketch/ArdublocklySketch.ino" 2
-# 1 "/home/francois/Arduino/libraries/LiquidCrystal_I2C-master/LiquidCrystal_I2C.h" 1
-//YWROBOT
-
-
-
-# 1 "/home/francois/.arduino15/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/avr/include/inttypes.h" 1 3
-/* Copyright (c) 2004,2005,2007,2012 Joerg Wunsch
-   Copyright (c) 2005, Carlos Lamas
-   All rights reserved.
-
-   Redistribution and use in source and binary forms, with or without
-   modification, are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright
-     notice, this list of conditions and the following disclaimer.
-
-   * Redistributions in binary form must reproduce the above copyright
-     notice, this list of conditions and the following disclaimer in
-     the documentation and/or other materials provided with the
-     distribution.
-
-   * Neither the name of the copyright holders nor the names of
-     contributors may be used to endorse or promote products derived
-     from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-  POSSIBILITY OF SUCH DAMAGE. */
-
-/* $Id$ */
-# 6 "/home/francois/Arduino/libraries/LiquidCrystal_I2C-master/LiquidCrystal_I2C.h" 2
-# 1 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/cores/arduino/Print.h" 1
-/*
-  Print.h - Base class that provides print() and println()
-  Copyright (c) 2008 David A. Mellis.  All right reserved.
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
-# 7 "/home/francois/Arduino/libraries/LiquidCrystal_I2C-master/LiquidCrystal_I2C.h" 2
-# 1 "/home/francois/.arduino15/packages/arduino/hardware/avr/1.6.20/libraries/Wire/src/Wire.h" 1
-/*
-  TwoWire.h - TWI/I2C library for Arduino & Wiring
-  Copyright (c) 2006 Nicholas Zambetti.  All right reserved.
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
-  Modified 2012 by Todd Krein (todd@krein.org) to implement repeated starts
-*/
 # 8 "/home/francois/Arduino/libraries/LiquidCrystal_I2C-master/LiquidCrystal_I2C.h" 2
 
 // commands
@@ -9533,36 +9613,33 @@ private:
   uint8_t _rows;
   uint8_t _backlightval;
 };
-# 5 "/home/francois/GIT/ArduBloQliic/ardublockly/ArdublocklySketch/ArdublocklySketch.ino" 2
+# 4 "/home/francois/Arduino/temp/temp.ino" 2
 LiquidCrystal_I2C LCD(39,16,2);
 
-int degre;
-int x;
-int y;
-int z;
-String magnetometerValues;
-String msg;
+int v0;
 
 void setup() {
   Serial.begin(9600);
-  magnetometerSetup();
+  pinMode(A0, 0x0);
+  pixel_8.begin();
   LCD.init();
   LCD.backlight();
 }
 
 void loop() {
-  degre = magnetometerDegre;
-  x = magnetometerAxeX;
-  y = magnetometerAxeY;
-  z = magnetometerAxeZ;
-  magnetometerValues = (String)(magnetometerRead());
-  msg = String(degre) + String(",") + String(x) + String(",") + String(y) + String(",") + String(z);
-  Serial.println(magnetometerValues);
-  Serial.println(msg);
-  LCD.clear();
-  LCD.print(magnetometerValues);
-  LCD.setCursor(0,1);
-  LCD.print(msg);
-  delay(100);
 
+  char inByte;
+
+  v0 = (int)(analogRead(A0) / 4);
+  pixel_8.setPixelColor(0, pixel_8.Color((int) inByte,(int) inByte,(int) inByte));
+  pixel_8.show();
+  LCD.setCursor(0,0);
+  LCD.print(v0);
+
+  if (Serial.available()) {
+    inByte = Serial.read();
+    LCD.setCursor(0,1);
+    LCD.print("CAR=");
+    LCD.print(inByte);
+  }
 }

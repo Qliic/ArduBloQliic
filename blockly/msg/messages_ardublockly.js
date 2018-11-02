@@ -94,11 +94,13 @@ Blockly.Msg.ARD_SERIAL_PRINT = 'print';
 Blockly.Msg.ARD_SERIAL_PRINT_NEWLINE = 'add new line';
 Blockly.Msg.ARD_SERIAL_PRINT_TIP = 'Prints data to the console/serial port as human-readable ASCII text.';
 Blockly.Msg.ARD_SERIAL_PRINT_WARN = 'A setup block for %1 must be added to the workspace to use this block!';
-Blockly.Msg.ARD_SERVO_WRITE = 'set SERVO from Pin';
+//FB
+Blockly.Msg.ARD_SERVO_WRITE = 'Set servo @';
 Blockly.Msg.ARD_SERVO_WRITE_TO = 'to';
 Blockly.Msg.ARD_SERVO_WRITE_DEG_180 = 'Degrees (0~180)';
 Blockly.Msg.ARD_SERVO_WRITE_TIP = 'Set a Servo to an specified angle';
-Blockly.Msg.ARD_SERVO_READ = 'read SERVO from PIN#';
+//FB
+Blockly.Msg.ARD_SERVO_READ = 'Read servo @';
 Blockly.Msg.ARD_SERVO_READ_TIP = 'Read a Servo angle';
 Blockly.Msg.ARD_SPI_SETUP = 'Setup';
 Blockly.Msg.ARD_SPI_SETUP_CONF = 'configuration:';

@@ -133,6 +133,11 @@ def load_arduino_cli(sketch_path):
             print('Arduino output:\n%s' % std_out)
             print('Arduino Error output:\n%s' % err_out)
             print('Arduino Exit code: %s' % exit_code)
+#FB
+            process1 = subprocess.Popen(
+                "cd ardublockly/BUILD;./uf2conv.py -c ArdublocklySketch.ino.hex", stdout=subprocess.PIPE, stderr=subprocess.PIPE,shell=True)
+#FB
+
             # For some reason Arduino CLI can return 256 on success
             if (process.returncode != 0) and (process.returncode != 256):
                 success = False

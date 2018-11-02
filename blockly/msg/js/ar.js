@@ -432,9 +432,12 @@ Blockly.Msg.ARD_SERIAL_PRINT_WARN = "A setup block for %1 must be added to the w
 Blockly.Msg.ARD_SERIAL_SETUP = "Setup";  // untranslated
 Blockly.Msg.ARD_SERIAL_SETUP_TIP = "Selects the speed for a specific Serial peripheral";  // untranslated
 Blockly.Msg.ARD_SERIAL_SPEED = ":  speed to";  // untranslated
-Blockly.Msg.ARD_SERVO_READ = "read SERVO from PIN#";  // untranslated
+//FB
+//Blockly.Msg.ARD_SERVO_READ = "read SERVO from PIN#";  // untranslated
+Blockly.Msg.ARD_SERVO_READ = "Read SERVO @";  // untranslated
 Blockly.Msg.ARD_SERVO_READ_TIP = "Read a Servo angle";  // untranslated
-Blockly.Msg.ARD_SERVO_WRITE = "set SERVO from Pin";  // untranslated
+//Blockly.Msg.ARD_SERVO_WRITE = "set SERVO from Pin";  // untranslated
+Blockly.Msg.ARD_SERVO_WRITE = "Set SERVO @";  // untranslated
 Blockly.Msg.ARD_SERVO_WRITE_DEG_180 = "Degrees (0~180)";  // untranslated
 Blockly.Msg.ARD_SERVO_WRITE_TIP = "Set a Servo to an specified angle";  // untranslated
 Blockly.Msg.ARD_SERVO_WRITE_TO = "to";  // untranslated
